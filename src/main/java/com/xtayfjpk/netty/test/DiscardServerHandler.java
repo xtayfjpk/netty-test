@@ -1,24 +1,15 @@
 package com.xtayfjpk.netty.test;
 
-import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.ReferenceCountUtil;
 
 public class DiscardServerHandler extends ChannelHandlerAdapter {
 	
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-		ByteBuf in = (ByteBuf)msg;
-		try {
-			while(in.isReadable()) {
-				System.out.println((char)in.readByte());
-				System.out.flush();
-			}
-		} finally {
-			ReferenceCountUtil.release(msg);
-		}
-		
+		//消息被写出时会自动进行释放，所以不用手动进行释放
+		ctx.write(msg);
+		ctx.flush();
 	}
 	
 	@Override
