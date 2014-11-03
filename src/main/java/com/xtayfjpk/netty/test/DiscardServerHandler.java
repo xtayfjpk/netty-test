@@ -9,7 +9,7 @@ public class DiscardServerHandler extends ChannelHandlerAdapter {
 	
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-		/*ByteBuf in = (ByteBuf)msg;
+		ByteBuf in = (ByteBuf)msg;
 		try {
 			while(in.isReadable()) {
 				System.out.println((char)in.readByte());
@@ -17,7 +17,7 @@ public class DiscardServerHandler extends ChannelHandlerAdapter {
 			}
 		} finally {
 			ReferenceCountUtil.release(msg);
-		}*/
+		}
 		
 	}
 	
