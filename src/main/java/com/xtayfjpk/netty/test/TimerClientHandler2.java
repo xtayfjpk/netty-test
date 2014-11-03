@@ -7,7 +7,6 @@ import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 
 /**
- * 第二种解决服务端传递的数据可能被分成碎片的问题方案
  * @author zj
  *
  */
